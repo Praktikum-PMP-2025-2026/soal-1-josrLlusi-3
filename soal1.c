@@ -29,7 +29,7 @@ void medianNya(int* array, int* arraysize, int* median){
     if(*arraysize % 2 == 0){
         *median = (array[*arraysize/2] + array[*arraysize/2 +1])/2;
     }
-    if(*arraysize % 2 == 1){
+    else{
         *median = (array[*arraysize/2]);
     }
 }
@@ -57,7 +57,7 @@ int main() {
         scanf("%d", &temp);
     }
 
-    printf("COUNT %d", arraysize);
+    printf("COUNT %d ", arraysize);
     sorted(array, &arraysize);
     printf("SORTED ");
     for(int i = 0; i< arraysize; i++){
