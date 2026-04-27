@@ -17,7 +17,7 @@
 void sorted(int* array, int arraysize){
     int temp =0;
     for(int i = 0; i < arraysize; i++){
-        for(int j = 0; j < arraysize; j++){
+        for(int j = 0;  j<arraysize-1-i; j++){
             if(array[j] > array[j+1]){
                 temp = array[j];
                 array[j] = array[j+1];
