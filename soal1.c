@@ -68,6 +68,10 @@ int main() {
         scanf("%d", &temp);
     }
 
+    // for(int i = 0; i<arraysize; i++){
+    //     printf("%d\n", array[i]);
+    // }
+
     sorted(array, arraysize);
 
     medianNya(array, arraysize, &median);
@@ -78,10 +82,10 @@ int main() {
 
     printf("MEDIAN %.2f", median);
 
-    printf("\n");
-    for(int i = 0; i<arraysize; i++){
-        printf("%d\n", array[i]);
-    }
+    // printf("\n");
+    // for(int i = 0; i<arraysize; i++){
+    //     printf("%d\n", array[i]);
+    // }
 
     free(array);
     return 0;
