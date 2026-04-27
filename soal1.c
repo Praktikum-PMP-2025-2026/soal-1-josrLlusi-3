@@ -57,13 +57,12 @@ int main() {
         scanf("%d", &temp);
     }
 
-    printf("COUNT %d\n", arraysize);
+    printf("COUNT %d", arraysize);
     sorted(array, &arraysize);
     printf("SORTED ");
     for(int i = 0; i< arraysize; i++){
         printf("%d ", array[i]);
     }
-    printf("\n");
     medianNya(array, &arraysize, &median);
     printf("MEDIAN %d", median);
 
