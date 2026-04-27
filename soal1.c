@@ -14,31 +14,32 @@
  #include <string.h>
  #include <stdlib.h>
 
-void sorted(int* array, int* arraysize){
-    for(int i = 0; i < *arraysize; i++){
-        for(int j = 0; j < *arraysize; j++){
+void sorted(int* array, int arraysize){
+    int temp =0;
+    for(int i = 0; i < arraysize; i++){
+        for(int j = 0; j < arraysize; j++){
             if(array[j] > array[j+1]){
-                int temp = array[j];
+                temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
             }
         }
     }
 }
-void medianNya(int* array, int* arraysize, double* median){
-    if(*arraysize == 2){
+void medianNya(int* array, int arraysize, double* median){
+    if(arraysize == 2){
         *median = (array[0] + array[1])/2.0;
     }
-    else if(*arraysize % 2 == 0){
-        *median = (array[(*arraysize-1)/2] + array[*arraysize/2]) / 2.0;
+    else if(arraysize % 2 == 0){
+        *median = (array[(arraysize-1)/2] + array[arraysize/2]) / 2.0;
     }
     else{
-        *median = (array[*arraysize/2]);
+        *median = (array[arraysize/2]);
     }
 }
-void printsort(int* array, int* arraysize){
+void printsort(int* array, int arraysize){
     printf("SORTED ");
-    for(int i = 0; i< *arraysize; i++){
+    for(int i = 0; i< arraysize; i++){
         printf("%d ", array[i]);
     }
 }
@@ -46,12 +47,13 @@ void printsort(int* array, int* arraysize){
 int main() {
     int* array = NULL;
     int arraysize = 0;
-    int temp;
+    int temp = 0;
     double median = 0;
 
     scanf("%d", &temp);
 
     while(temp != -1){
+
         arraysize++;
 
         if(arraysize == 1){
@@ -61,25 +63,25 @@ int main() {
             array = (int*) realloc(array, arraysize * sizeof(int));
         }
 
-        array[arraysize-1] = temp;
+        array[arraysize - 1] = temp;
 
         scanf("%d", &temp);
     }
 
-    sorted(array, &arraysize);
+    sorted(array, arraysize);
 
-    medianNya(array, &arraysize, &median);
+    medianNya(array, arraysize, &median);
 
     printf("COUNT %d ", arraysize);
 
-    printsort(array, &arraysize);
+    printsort(array, arraysize);
 
     printf("MEDIAN %.2f", median);
 
-    // printf("\n");
-    // for(int i = 0; i<arraysize; i++){
-    //     printf("%d\n", array[i]);
-    // }
+    printf("\n");
+    for(int i = 0; i<arraysize; i++){
+        printf("%d\n", array[i]);
+    }
 
     free(array);
     return 0;
