@@ -26,12 +26,12 @@ void sorted(int* array, int arraysize){
         }
     }
 }
-void medianNya(int* array, int arraysize, double* median){
+void medianNya(int* array, int arraysize, double* median, int*medianint){
     if(arraysize == 2){
-        *median = (array[0] + array[1])/2.0;
+        *medianint = (array[0] + array[1])/2.0;
     }
     else if(arraysize % 2 == 0){
-        *median = (array[(arraysize-1)/2] + array[arraysize/2]) / 2.0;
+        *medianint = (array[(arraysize-1)/2] + array[arraysize/2]) / 2.0;
     }
     else{
         *median = (array[arraysize/2]);
@@ -49,6 +49,7 @@ int main() {
     int arraysize = 0;
     int temp = 0;
     double median = 0;
+    int medianint = 0;
 
     scanf("%d", &temp);
 
@@ -74,13 +75,18 @@ int main() {
 
     sorted(array, arraysize);
 
-    medianNya(array, arraysize, &median);
+    medianNya(array, arraysize, &median, &medianint);
 
     printf("COUNT %d ", arraysize);
 
     printsort(array, arraysize);
 
-    printf("MEDIAN %.2f", median);
+    if(arraysize % 2 !=0){
+        printf("MEDIAN %.2f", median);
+    }
+    else{
+        printf("MEDIAN %d", medianint);
+    }
 
     // printf("\n");
     // for(int i = 0; i<arraysize; i++){
